@@ -6,18 +6,18 @@ import com.example.casem3.model.Product;
 import java.util.List;
 
 public class ProductService {
-    public static List<Product> products = ProductDao.selectAll();
+    public static List<Product> Products = ProductDao.selectAll();
     public static void insert(Product product){
         ProductDao.insert(product);
-        products = ProductDao.selectAll();
+        Products = ProductDao.selectAll();
     }
     public static void update(Product product){
         ProductDao.update(product);
-        products = ProductDao.selectAll();
+        Products = ProductDao.selectAll();
     }
     public static void delete(int id){
         ProductDao.delete(id);
-        products = ProductDao.selectAll();
+        Products = ProductDao.selectAll();
     }
     public static List<Product> search(String name){
 

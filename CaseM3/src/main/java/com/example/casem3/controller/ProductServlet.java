@@ -16,8 +16,8 @@ import java.util.List;
 public class ProductServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Product> products = ProductService.products;
-        req.setAttribute("products", products);
+        List<Product> Products = ProductService.Products;
+        req.setAttribute("products", Products);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/home.jsp");
         dispatcher.forward(req,resp);
     }
