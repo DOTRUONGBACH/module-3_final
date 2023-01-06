@@ -3,7 +3,6 @@ package com.example.casem3.dao;
 import com.example.casem3.model.Product;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,6 +1,5 @@
 package com.example.casem3.controller;
 
-import com.example.casem3.dao.ProductDao;
 import com.example.casem3.model.Product;
 import com.example.casem3.service.ProductService;
 
