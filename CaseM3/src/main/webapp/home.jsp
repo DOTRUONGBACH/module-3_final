@@ -52,11 +52,12 @@
             </ul>
 
             <%-- Thanh Search --%>
-            <div style="position: absolute; left: 80%">
-                <form>
-                    <input type="text">
-                </form>
-            </div>
+                <div class="navbar-nav" style="position: relative; top: 8px; left: 8px">
+                    <form>
+                        <input type="text">
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
 
             <%-- Mục Tài khoản --%>
             <div style="position: absolute; left: 80%">
