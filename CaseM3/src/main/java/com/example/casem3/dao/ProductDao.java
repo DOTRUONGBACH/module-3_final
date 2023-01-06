@@ -10,7 +10,7 @@ public class ProductDao {
     static Connection connection = ConnectionSql.getConnection();
 
     public static List<Product> selectAll() {
-        List<Product> products = new ArrayList<>();
+        List<Product> Products = new ArrayList<>();
         String sql = "Select * from classroom ";
         try {
             Statement statement = connection.createStatement();
@@ -27,14 +27,14 @@ public class ProductDao {
                 int idHattype = resultSet.getInt("idhattype");
                 int idCatagory = resultSet.getInt("idcatagory");
 
-                products.add(new Product(hatId, hatName, imgMain, imgSub1, imgSub2,
+                Products.add(new Product(hatId, hatName, imgMain, imgSub1, imgSub2,
                         sellPrice, quantity,detail,idHattype,idCatagory));
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return products;
+        return Products;
     }
 
     public static boolean insert(Product product) {
@@ -91,7 +91,7 @@ public class ProductDao {
 
     public static List<Product> search(String searchname) {
         String search = "select * from # where name like '%"+searchname+"%';";
-        List<Product> products = new ArrayList<>();
+        List<Product> Products = new ArrayList<>();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(search);
 
@@ -108,12 +108,12 @@ public class ProductDao {
                 int idHattype = resultSet.getInt("idhattype");
                 int idCatagory = resultSet.getInt("idcatagory");
 
-                products.add(new Product(hatId, hatName, imgMain, imgSub1, imgSub2,
+                Products.add(new Product(hatId, hatName, imgMain, imgSub1, imgSub2,
                         sellPrice, quantity,detail,idHattype,idCatagory));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return products;
+        return Products;
     }
 }
