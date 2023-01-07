@@ -11,21 +11,21 @@ public class ProductDao {
 
     public static List<Product> selectAll() {
         List<Product> Products = new ArrayList<>();
-        String sql = "Select * from classroom ";
+        String sql = "Select * from product ";
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
-                int hatId = resultSet.getInt("hatid");
-                String hatName = resultSet.getString("hatname");
-                String imgMain = resultSet.getString("imgmain");
-                String imgSub1 = resultSet.getString("imgsub1");
-                String imgSub2 = resultSet.getString("imgsub2");
-                double sellPrice = resultSet.getDouble("sellprice");
+                int hatId = resultSet.getInt("hatId");
+                String hatName = resultSet.getString("hatName");
+                String imgMain = resultSet.getString("imgMain");
+                String imgSub1 = resultSet.getString("imgSub1");
+                String imgSub2 = resultSet.getString("imgSub2");
+                double sellPrice = resultSet.getDouble("sellPrice");
                 int quantity = resultSet.getInt("quantity");
                 String detail = resultSet.getString("detail");
-                int idHattype = resultSet.getInt("idhattype");
-                int idCatagory = resultSet.getInt("idcatagory");
+                int idHattype = resultSet.getInt("idHattype");
+                int idCatagory = resultSet.getInt("idCatagory");
 
                 Products.add(new Product(hatId, hatName, imgMain, imgSub1, imgSub2,
                         sellPrice, quantity,detail,idHattype,idCatagory));
@@ -35,6 +35,31 @@ public class ProductDao {
             e.printStackTrace();
         }
         return Products;
+    }
+
+    public static Product selectByHatId(int id) {
+        String sql = "Select * from product where hatId = " + id;
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            resultSet.next();
+
+                int hatId = resultSet.getInt("hatId");
+                String hatName = resultSet.getString("hatName");
+                String imgMain = resultSet.getString("imgMain");
+                String imgSub1 = resultSet.getString("imgSub1");
+                String imgSub2 = resultSet.getString("imgSub2");
+                double sellPrice = resultSet.getDouble("sellPrice");
+                int quantity = resultSet.getInt("quantity");
+                String detail = resultSet.getString("detail");
+                int idHattype = resultSet.getInt("idHattype");
+                int idCatagory = resultSet.getInt("idCatagory");
+
+                return new Product(hatId, hatName, imgMain, imgSub1, imgSub2, sellPrice, quantity, detail, idHattype, idCatagory);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public static boolean insert(Product product) {
@@ -97,16 +122,16 @@ public class ProductDao {
 
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                int hatId = resultSet.getInt("hatid");
-                String hatName = resultSet.getString("hatname");
-                String imgMain = resultSet.getString("imgmain");
-                String imgSub1 = resultSet.getString("imgsub1");
-                String imgSub2 = resultSet.getString("imgsub2");
-                Double sellPrice = resultSet.getDouble("sellprice");
+                int hatId = resultSet.getInt("hatId");
+                String hatName = resultSet.getString("hatName");
+                String imgMain = resultSet.getString("imgMain");
+                String imgSub1 = resultSet.getString("imgSub1");
+                String imgSub2 = resultSet.getString("imgSub2");
+                double sellPrice = resultSet.getDouble("sellPrice");
                 int quantity = resultSet.getInt("quantity");
                 String detail = resultSet.getString("detail");
-                int idHattype = resultSet.getInt("idhattype");
-                int idCatagory = resultSet.getInt("idcatagory");
+                int idHattype = resultSet.getInt("idHattype");
+                int idCatagory = resultSet.getInt("idCatagory");
 
                 Products.add(new Product(hatId, hatName, imgMain, imgSub1, imgSub2,
                         sellPrice, quantity,detail,idHattype,idCatagory));

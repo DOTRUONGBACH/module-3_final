@@ -7,6 +7,10 @@ import java.util.List;
 
 public class ProductService {
     public static List<Product> Products = ProductDao.selectAll();
+
+    public static Product findByHatId(int id) {
+        return ProductDao.selectByHatId(id);
+    }
     public static void insert(Product product){
         ProductDao.insert(product);
         Products = ProductDao.selectAll();

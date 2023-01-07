@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 84837
@@ -166,72 +167,24 @@
 <div class="container-fluid">
     <div class="py-2">
         <div class="row">
+            <c:forEach var="p" items="${products}">
             <!-- product -->
             <div class="col-md-3" style="margin-top: 2%">
-                <div class="hover hover-5 text-white rounded"><img
-                        src="https://bootstrapious.com/i/snippets/sn-img-hover/hoverSet-10.jpg" alt="">
+                <div class="hover hover-5 text-white rounded">
+                    <img src="${p.imgMain}">
                     <div class="hover-overlay"></div>
                     <div class="hover-5-content">
-                        <h6 class="hover-5-title text-uppercase font-weight-light mb-0">Mũ <strong
-                                class="font-weight-bold text-white">Lưỡi chai </strong><span>120.000</span></h6>
+                        <h6 class="hover-5-title text-uppercase font-weight-light mb-0">
+                            <span><a class="btn btn-danger" href="/infoProduct?hatId=${p.hatId}">Mua hàng</a></span>
+                            <br><br>
+                            <strong class="font-weight-bold text-white">${p.hatName} </strong>
+                            <span>${p.sellPrice}</span>
+                        </h6>
                     </div>
                 </div>
             </div>
-            <!-- product -->
-            <div class="col-md-3" style="margin-top: 2%">
-                <div class="hover hover-5 text-white rounded"><img
-                        src="https://bootstrapious.com/i/snippets/sn-img-hover/hoverSet-10.jpg" alt="">
-                    <div class="hover-overlay"></div>
-                    <div class="hover-5-content">
-                        <h6 class="hover-5-title text-uppercase font-weight-light mb-0">Mũ <strong
-                                class="font-weight-bold text-white">Lưỡi chai </strong><span>120.000</span></h6>
-                    </div>
-                </div>
-            </div>
-            <!-- product -->
-            <div class="col-md-3" style="margin-top: 2%">
-                <div class="hover hover-5 text-white rounded"><img
-                        src="https://bootstrapious.com/i/snippets/sn-img-hover/hoverSet-10.jpg" alt="">
-                    <div class="hover-overlay"></div>
-                    <div class="hover-5-content">
-                        <h6 class="hover-5-title text-uppercase font-weight-light mb-0">Mũ <strong
-                                class="font-weight-bold text-white">Lưỡi chai </strong><span>120.000</span></h6>
-                    </div>
-                </div>
-            </div>
-            <!-- product -->
-            <div class="col-md-3" style="margin-top: 2%">
-                <div class="hover hover-5 text-white rounded"><img
-                        src="https://bootstrapious.com/i/snippets/sn-img-hover/hoverSet-10.jpg" alt="">
-                    <div class="hover-overlay"></div>
-                    <div class="hover-5-content">
-                        <h6 class="hover-5-title text-uppercase font-weight-light mb-0">Mũ <strong
-                                class="font-weight-bold text-white">Lưỡi chai </strong><span>120.000</span></h6>
-                    </div>
-                </div>
-            </div>
-            <!-- product -->
-            <div class="col-md-3" style="margin-top: 2%">
-                <div class="hover hover-5 text-white rounded"><img
-                        src="https://bootstrapious.com/i/snippets/sn-img-hover/hoverSet-10.jpg" alt="">
-                    <div class="hover-overlay"></div>
-                    <div class="hover-5-content">
-                        <h6 class="hover-5-title text-uppercase font-weight-light mb-0">Mũ <strong
-                                class="font-weight-bold text-white">Lưỡi chai </strong><span>120.000</span></h6>
-                    </div>
-                </div>
-            </div>
-            <!-- product -->
-            <div class="col-md-3" style="margin-top: 2%">
-                <div class="hover hover-5 text-white rounded"><img
-                        src="https://bootstrapious.com/i/snippets/sn-img-hover/hoverSet-10.jpg" alt="">
-                    <div class="hover-overlay"></div>
-                    <div class="hover-5-content">
-                        <h6 class="hover-5-title text-uppercase font-weight-light mb-0">Mũ <strong
-                                class="font-weight-bold text-white">Lưỡi chai </strong><span>120.000</span></h6>
-                    </div>
-                </div>
-            </div>
+            <!-- End product -->
+            </c:forEach>
         </div>
     </div>
 </div>
