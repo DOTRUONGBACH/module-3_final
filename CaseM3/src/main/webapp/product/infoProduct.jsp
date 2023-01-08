@@ -76,6 +76,18 @@
                         </li>
                     </ul>
                 </div>
+
+                <%-- Login success --%>
+                <div style="position: absolute; left: 80%">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Name /</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Giỏ hàng /</a>
+                        </li>
+                    </ul>
+                </div>
             </ul>
         </div>
     </div>

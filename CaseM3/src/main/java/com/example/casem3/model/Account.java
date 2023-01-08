@@ -2,26 +2,26 @@ package com.example.casem3.model;
 
 import java.time.LocalDate;
 
-public class User {
+public class Account {
     private int customerId;
     private String username;
     private String password;
     private String fullName;
-    private LocalDate dateBirth;
+    private int age;
     private String phone;
-    private String email;
+    private int role;
 
-    public User() {
+    public Account() {
     }
 
-    public User(int customerId, String username, String password, String fullName, LocalDate dateBirth, String phone, String email) {
+    public Account(int customerId, String username, String password, String fullName, int age, String phone, int role) {
         this.customerId = customerId;
         this.username = username;
         this.password = password;
         this.fullName = fullName;
-        this.dateBirth = dateBirth;
+        this.age = age;
         this.phone = phone;
-        this.email = email;
+        this.role = role;
     }
 
     public int getCustomerId() {
@@ -56,12 +56,12 @@ public class User {
         this.fullName = fullName;
     }
 
-    public LocalDate getDateBirth() {
-        return dateBirth;
+    public int getAge() {
+        return age;
     }
 
-    public void setDateBirth(LocalDate dateBirth) {
-        this.dateBirth = dateBirth;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getPhone() {
@@ -72,11 +72,11 @@ public class User {
         this.phone = phone;
     }
 
-    public String getEmail() {
-        return email;
+    public int getRole() {
+        return role;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setRole(int role) {
+        this.role = role;
     }
 }

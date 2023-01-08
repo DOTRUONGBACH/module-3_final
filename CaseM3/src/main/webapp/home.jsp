@@ -67,21 +67,102 @@
                 </div>
 
                 <%-- Mục Tài khoản --%>
+                <c:if test="${sessionScope.get('fullName') == null}">
                 <div style="position: absolute; left: 80%">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Đăng ký /</a>
+                            <a class="nav-link btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal-1" href="#">Đăng ký /</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Đăng nhập /</a>
+                            <a class="nav-link btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal-2" >Đăng nhập /</a>
                         </li>
                     </ul>
                 </div>
+                </c:if>
+
+                <%-- Login success --%>
+                <c:if test="${sessionScope.get('fullName') != null}">
+                <div style="position: absolute; left: 80%">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Hello ${fullName} /</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Giỏ hàng /</a>
+                        </li>
+                    </ul>
+                </div>
+                </c:if>
             </ul>
         </div>
     </div>
 </nav>
 <%--  End Thanh Navbar  --%>
+
+<!--  Model register  -->
+<div class="modal fade" id="myModal-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Register</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body" style="left: 35px">
+                <form>
+                    <label>Username:</label><br>
+                    <input type="text" name="username" placeholder="Enter username" style="width: 380px"><br>
+                    <label>Password:</label><br>
+                    <input type="password" name="password" placeholder="Enter password" style="width: 380px"><br>
+                    <label>Full Name:</label><br>
+                    <input type="text" name="fullName" placeholder="Enter full name" style="width: 380px"><br>
+                    <label>Your Age:</label><br>
+                    <input type="text" name="age" placeholder="Enter your age" style="width: 380px"><br>
+                    <label>Phone Number:</label><br>
+                    <input type="text" name="phone" placeholder="Enter your phone number " style="width: 380px"><br>
+                </form>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="position: absolute; left: 40px">Close</button>
+                <button class="btn btn-success" type="submit" style="position: absolute; left: 360px">Submit</button>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+<%--  End Model register  --%>
+
+<!--  Model login  -->
+<div class="modal fade" id="myModal-2">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Login</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body" style="left: 35px">
+                <form action="/login" method="post">
+                    <label>Username:</label><br>
+                    <input type="text" name="username" placeholder="Enter username" style="width: 380px"><br>
+                    <label>Password:</label><br>
+                    <input type="password" name="password" placeholder="Enter password" style="width: 380px">
+                    <br><br>
+                    <button class="btn btn-success" type="submit" style="position: absolute; left: 320px">Submit</button>
+                </form>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="position: absolute; left: 46px; top: 230px">Close</button>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+<%--  End Model login  --%>
 
 <%--  Slide Show  --%>
 <div id="demo" class="carousel slide" data-bs-ride="carousel">
