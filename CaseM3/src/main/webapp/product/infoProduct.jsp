@@ -108,7 +108,7 @@
                                 </div>
                                 <p class="about">${products.detail}.</p>
                                 <div class="cart mt-8 align-items-center">
-                                    <button class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button>
+                                    <a type="button" class="btn btn-danger text-uppercase mr-2 px-4" href="/addtocart?hatid=${products.hatId}">Add to cart</a>
                                     <button class="btn btn-danger text-uppercase mr-2 px-4">Buy now</button>
                                 </div>
                             </div>
