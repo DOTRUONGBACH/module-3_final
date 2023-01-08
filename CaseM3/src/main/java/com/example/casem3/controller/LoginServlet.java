@@ -32,12 +32,15 @@ public class LoginServlet extends HttpServlet {
 
         if (account == null) {
             // sai thông tin
-//            RequestDispatcher dispatcher = req.getRequestDispatcher("/home");
-//            dispatcher.forward(req, resp);
             resp.sendRedirect("/home");
         } else {
             if (account.getRole() == 1) {
                 // admin
+                RequestDispatcher dispatcher = req.getRequestDispatcher("/admin.jsp");
+                HttpSession session = req.getSession();
+                String fullName = account.getFullName();
+                session.setAttribute("fullName", fullName);
+                dispatcher.forward(req,resp);
             } else {
                 // user
                 List<Product> Products = ProductService.Products;
@@ -49,7 +52,6 @@ public class LoginServlet extends HttpServlet {
                 String fullName = account.getFullName();
                 session.setAttribute("fullName", fullName);
                 dispatcher.forward(req,resp);
-
             }
         }
     }
