@@ -115,7 +115,7 @@ public class ProductDao {
     }
 
     public static List<Product> search(String searchname) {
-        String search = "select * from # where name like '%"+searchname+"%';";
+        String search = "select * from product where hatName like '%"+searchname+"%';";
         List<Product> Products = new ArrayList<>();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(search);

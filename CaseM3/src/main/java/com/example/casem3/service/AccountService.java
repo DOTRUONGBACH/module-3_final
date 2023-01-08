@@ -7,10 +7,14 @@ import java.util.List;
 
 public class AccountService {
     public static Account checkAccount(String username, String password) {
-       return AccountDao.checkAccount(username, password);
+        return AccountDao.checkAccount(username, password);
     }
 
     public static Account checkLogin(String username, String password) {
         return AccountDao.checkLogin(username, password);
+    }
+
+    public static void add(Account account) {
+        AccountDao.insert(account);
     }
 }

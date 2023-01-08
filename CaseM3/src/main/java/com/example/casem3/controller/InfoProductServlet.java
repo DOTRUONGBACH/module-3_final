@@ -19,8 +19,10 @@ public class InfoProductServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("hatId"));
+        String fullName = req.getParameter("fullName");
         Product products = ProductService.findByHatId(id);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/product/infoProduct.jsp");
+        req.setAttribute("fullName", fullName);
         req.setAttribute("products", products);
         dispatcher.forward(req, resp);
     }

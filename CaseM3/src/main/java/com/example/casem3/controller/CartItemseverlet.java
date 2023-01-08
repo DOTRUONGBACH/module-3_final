@@ -2,7 +2,9 @@ package com.example.casem3.controller;
 
 import com.example.casem3.model.Cart;
 import com.example.casem3.model.CartItem;
+import com.example.casem3.model.HatType;
 import com.example.casem3.model.Product;
+import com.example.casem3.service.HatTypeService;
 import com.example.casem3.service.ProductService;
 
 import javax.servlet.RequestDispatcher;
@@ -19,6 +21,10 @@ import java.util.List;
 public class CartItemseverlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<Product> Products = ProductService.Products;
+        List<HatType> hatTypes = HatTypeService.hatTypes;
+        req.setAttribute("hatTypes", hatTypes);
+        req.setAttribute("products", Products);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/cart.jsp");
         dispatcher.forward(req,resp);
     }

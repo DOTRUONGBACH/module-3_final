@@ -36,13 +36,15 @@
             <%-- Mục menu --%>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Trang chủ</a>
+                    <a class="nav-link btn btn-dark" href="/home">Trang chủ</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Nam</a>
                     <ul class="dropdown-menu">
                         <c:forEach var="h" items="${hatTypes}">
-                        <li><a class="dropdown-item" href="/filterProduct?idHatType=${h.idHattype}&idCate=1&fullName${fullName}">${h.typeName}</a></li>
+                            <li><a class="dropdown-item"
+                                   href="/filterProduct?idHatType=${h.idHattype}&idCate=1&fullName=${fullName}">${h.typeName}</a>
+                            </li>
                         </c:forEach>
                     </ul>
                 </li>
@@ -50,54 +52,72 @@
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Nữ</a>
                     <ul class="dropdown-menu">
                         <c:forEach var="h" items="${hatTypes}">
-                            <li><a class="dropdown-item" href="/filterProduct?idHatType=${h.idHattype}&idCate=2&fullName=${fullName}">${h.typeName}</a></li>
+                            <li><a class="dropdown-item"
+                                   href="/filterProduct?idHatType=${h.idHattype}&idCate=2&fullName=${fullName}">${h.typeName}</a>
+                            </li>
                         </c:forEach>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Trẻ em</a>
+                    <a class="nav-link btn btn-dark" href="/filterProduct?idHatType=5&idCate=3&fullName=${fullName}">Trẻ em</a>
                 </li>
 
                 <%-- Thanh Search --%>
                 <div class="navbar-nav" style="position: relative; top: 8px; left: 8px">
-                    <form>
-                        <input type="text">
+                    <form action="/search" method="get">
+                        <input type="text" name="search">
                         <button type="submit">Search</button>
                     </form>
                 </div>
 
                 <%-- Mục Tài khoản --%>
                 <c:if test="${sessionScope.get('fullName') == null}">
-                <div style="position: absolute; left: 80%">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal-1" href="#">Đăng ký /</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal-2" >Đăng nhập /</a>
-                        </li>
-                    </ul>
-                </div>
+                    <div style="position: absolute; left: 80%">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal-1">Đăng
+                                    ký /</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal-2">Đăng
+                                    nhập /</a>
+                            </li>
+                        </ul>
+                    </div>
                 </c:if>
 
                 <%-- Login success --%>
                 <c:if test="${sessionScope.get('fullName') != null}">
-                <div style="position: absolute; left: 80%">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Hello ${fullName} /</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/item">Giỏ hàng /</a>
-                        </li>
-                    </ul>
-                </div>
+                    <div style="position: absolute; left: 70%">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <div class="dropdown-toggle btn btn-dark" data-bs-toggle="dropdown">
+                                        Hello ${fullName} /
+                                    </div>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="/logout">Đăng xuất</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-dark" href="/item">Giỏ hàng /</a>
+                            </li>
+                        </ul>
+                    </div>
                 </c:if>
             </ul>
         </div>
     </div>
 </nav>
 <%--  End Thanh Navbar  --%>
+
+<c:if test="${note2 != null}">
+    <div class="alert alert-success alert-success">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>${note2}</strong>
+    </div>
+</c:if>
 
 <!--  Model register  -->
 <div class="modal fade" id="myModal-1">
@@ -110,7 +130,7 @@
             </div>
             <!-- Modal body -->
             <div class="modal-body" style="left: 35px">
-                <form>
+                <form action="/register" method="post">
                     <label>Username:</label><br>
                     <input type="text" name="username" placeholder="Enter username" style="width: 380px"><br>
                     <label>Password:</label><br>
@@ -120,14 +140,14 @@
                     <label>Your Age:</label><br>
                     <input type="text" name="age" placeholder="Enter your age" style="width: 380px"><br>
                     <label>Phone Number:</label><br>
-                    <input type="text" name="phone" placeholder="Enter your phone number " style="width: 380px"><br>
+                    <input type="text" name="phone" placeholder="Enter your phone number " style="width: 380px"><br><br>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                            style="position: absolute; left: 40px">Close
+                    </button>
+                    <button class="btn btn-success" type="submit" style="position: absolute; left: 360px">Submit
+                    </button>
+                    <br>
                 </form>
-            </div>
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="position: absolute; left: 40px">Close</button>
-                <button class="btn btn-success" type="submit" style="position: absolute; left: 360px">Submit</button>
-                <br>
             </div>
         </div>
     </div>
@@ -151,13 +171,13 @@
                     <label>Password:</label><br>
                     <input type="password" name="password" placeholder="Enter password" style="width: 380px">
                     <br><br>
-                    <button class="btn btn-success" type="submit" style="position: absolute; left: 320px">Submit</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                            style="position: absolute; left: 46px;">Close
+                    </button>
+                    <button class="btn btn-success" type="submit" style="position: absolute; left: 320px">Submit
+                    </button>
+                    <br>
                 </form>
-            </div>
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="position: absolute; left: 46px; top: 230px">Close</button>
-                <br>
             </div>
         </div>
     </div>
@@ -249,27 +269,29 @@
     <div class="py-2">
         <div class="row">
             <c:forEach var="p" items="${products}">
-            <!-- product -->
-            <div class="col-md-3" style="margin-top: 2%">
-                <div class="hover hover-5 text-white rounded">
-                    <img src="${p.imgMain}">
-                    <div class="hover-overlay"></div>
-                    <div class="hover-5-content">
-                        <h6 class="hover-5-title text-uppercase font-weight-light mb-0">
-                            <c:if test="${sessionScope.get('fullName') != null}">
-                            <span><a class="btn btn-danger" href="/infoProduct?hatId=${p.hatId}">Mua hàng</a></span>
-                            </c:if>
-                            <c:if test="${sessionScope.get('fullName') == null}">
-                            <span><a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal-2"  >Mua hàng</a></span>
-                            </c:if>
-                            <br><br>
-                            <strong class="font-weight-bold text-white">${p.hatName} </strong>
-                            <span>${p.sellPrice}</span>
-                        </h6>
+                <!-- product -->
+                <div class="col-md-3" style="margin-top: 2%">
+                    <div class="hover hover-5 text-white rounded">
+                        <img src="${p.imgMain}">
+                        <div class="hover-overlay"></div>
+                        <div class="hover-5-content">
+                            <h6 class="hover-5-title text-uppercase font-weight-light mb-0">
+                                <c:if test="${sessionScope.get('fullName') != null}">
+                                    <span><a class="btn btn-danger"
+                                             href="/infoProduct?hatId=${p.hatId}&fullName=${fullName}">Mua hàng</a></span>
+                                </c:if>
+                                <c:if test="${sessionScope.get('fullName') == null}">
+                                    <span><a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal-2"
+                                             href="">Mua hàng</a></span>
+                                </c:if>
+                                <br><br>
+                                <strong class="font-weight-bold text-white">${p.hatName} </strong>
+                                <span>${p.sellPrice}</span>
+                            </h6>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- End product -->
+                <!-- End product -->
             </c:forEach>
         </div>
     </div>

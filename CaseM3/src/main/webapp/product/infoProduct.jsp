@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 84837
@@ -35,49 +36,75 @@
             <%-- Mục menu --%>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Trang chủ</a>
+                    <a class="nav-link" href="/home">Trang chủ</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Nam</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Link</a></li>
-                        <li><a class="dropdown-item" href="#">Another link</a></li>
-                        <li><a class="dropdown-item" href="#">A third link</a></li>
+                        <c:forEach var="h" items="${hatTypes}">
+                            <li><a class="dropdown-item"
+                                   href="/filterProduct?idHatType=${h.idHattype}&idCate=1&fullName=${fullName}">${h.typeName}</a>
+                            </li>
+                        </c:forEach>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Nữ</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Link</a></li>
-                        <li><a class="dropdown-item" href="#">Another link</a></li>
-                        <li><a class="dropdown-item" href="#">A third link</a></li>
+                        <c:forEach var="h" items="${hatTypes}">
+                            <li><a class="dropdown-item"
+                                   href="/filterProduct?idHatType=${h.idHattype}&idCate=2&fullName=${fullName}">${h.typeName}</a>
+                            </li>
+                        </c:forEach>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Trẻ em</a>
+                    <a class="nav-link btn btn-dark" href="/filterProduct?idHatType=5&idCate=3&fullName=${fullName}">Trẻ em</a>
                 </li>
 
                 <%-- Thanh Search --%>
                 <div class="navbar-nav" style="position: relative; top: 8px; left: 8px">
-                    <form>
-                        <input type="text">
+                    <form action="/search" method="get">
+                        <input type="text" name="search">
                         <button type="submit">Search</button>
                     </form>
                 </div>
 
                 <%-- Mục Tài khoản --%>
+                <c:if test="${sessionScope.get('fullName') == null}">
+                    <div style="position: absolute; left: 70%">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal-1"
+                                   href="#">Đăng ký /</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal-2">Đăng nhập /</a>
+                            </li>
+                        </ul>
+                    </div>
+                </c:if>
 
                 <%-- Login success --%>
-                <div style="position: absolute; left: 80%">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Name /</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="item">Giỏ hàng /</a>
-                        </li>
-                    </ul>
-                </div>
+                <c:if test="${sessionScope.get('fullName') != null}">
+                    <div style="position: absolute; left: 80%">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <div class="dropdown-toggle btn btn-dark" data-bs-toggle="dropdown">
+                                        Hello ${fullName} /
+                                    </div>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="/logout">Đăng xuất</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-dark" href="#">Giỏ hàng /</a>
+                            </li>
+                        </ul>
+                    </div>
+                </c:if>
             </ul>
         </div>
     </div>

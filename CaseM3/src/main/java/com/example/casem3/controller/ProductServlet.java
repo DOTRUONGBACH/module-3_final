@@ -21,11 +21,11 @@ public class ProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Product> Products = ProductService.Products;
         List<HatType> hatTypes = HatTypeService.hatTypes;
-//        HttpSession session = req.getSession();
-//        session.getAttribute("fullName");
         req.setAttribute("hatTypes", hatTypes);
         req.setAttribute("products", Products);
-        req.setAttribute("fullName", null);
+//        HttpSession session = req.getSession();
+//        session.getAttribute("fullName");
+//        req.setAttribute("fullName", null);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/home.jsp");
         dispatcher.forward(req,resp);
     }

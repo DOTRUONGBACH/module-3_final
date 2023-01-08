@@ -56,5 +56,21 @@ public class AccountDao {
         return null;
     }
 
+    public static boolean insert(Account account){
+        String insertSql = "INSERT INTO `casemd3`.`account` (`username`, `password`, `fullName`, `age`, `phone`, `role`) VALUES (?,?,?,?,?,?);";
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(insertSql);
+            preparedStatement.setString(1, account.getUsername());
+            preparedStatement.setString(2, account.getPassword());
+            preparedStatement.setString(3, account.getFullName());
+            preparedStatement.setInt(4, account.getAge());
+            preparedStatement.setString(5, account.getPhone());
+            preparedStatement.setInt(6, account.getRole());
+            return preparedStatement.execute();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }return false;
+    }
 
 }

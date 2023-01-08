@@ -36,7 +36,7 @@
             <%-- Mục menu --%>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Trang chủ</a>
+                    <a class="nav-link" href="/home">Trang chủ</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Nam</a>
@@ -59,13 +59,13 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Trẻ em</a>
+                    <a class="nav-link btn btn-dark" href="/filterProduct?idHatType=5&idCate=3&fullName=${fullName}">Trẻ em</a>
                 </li>
 
                 <%-- Thanh Search --%>
                 <div class="navbar-nav" style="position: relative; top: 8px; left: 8px">
-                    <form>
-                        <input type="text">
+                    <form action="/search" method="get">
+                        <input type="text" name="search">
                         <button type="submit">Search</button>
                     </form>
                 </div>
@@ -88,13 +88,20 @@
 
                 <%-- Login success --%>
                 <c:if test="${sessionScope.get('fullName') != null}">
-                    <div style="position: absolute; left: 80%">
+                    <div style="position: absolute; left: 70%">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Hello ${fullName} /</a>
+                                <div class="dropdown">
+                                    <div class="dropdown-toggle btn btn-dark" data-bs-toggle="dropdown">
+                                        Hello ${fullName} /
+                                    </div>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="/logout">Đăng xuất</a></li>
+                                    </ul>
+                                </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Giỏ hàng /</a>
+                                <a class="nav-link btn btn-dark" href="#">Giỏ hàng /</a>
                             </li>
                         </ul>
                     </div>
@@ -104,6 +111,71 @@
     </div>
 </nav>
 <%--  End Thanh Navbar  --%>
+
+<!--  Model register  -->
+<div class="modal fade" id="myModal-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Register</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body" style="left: 35px">
+                <form action="/register" method="post">
+                    <label>Username:</label><br>
+                    <input type="text" name="username" placeholder="Enter username" style="width: 380px"><br>
+                    <label>Password:</label><br>
+                    <input type="password" name="password" placeholder="Enter password" style="width: 380px"><br>
+                    <label>Full Name:</label><br>
+                    <input type="text" name="fullName" placeholder="Enter full name" style="width: 380px"><br>
+                    <label>Your Age:</label><br>
+                    <input type="text" name="age" placeholder="Enter your age" style="width: 380px"><br>
+                    <label>Phone Number:</label><br>
+                    <input type="text" name="phone" placeholder="Enter your phone number " style="width: 380px"><br><br>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                            style="position: absolute; left: 40px">Close
+                    </button>
+                    <button class="btn btn-success" type="submit" style="position: absolute; left: 360px">Submit
+                    </button>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<%--  End Model register  --%>
+
+<!--  Model login  -->
+<div class="modal fade" id="myModal-2">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Login</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body" style="left: 35px">
+                <form action="/login" method="post">
+                    <label>Username:</label><br>
+                    <input type="text" name="username" placeholder="Enter username" style="width: 380px"><br>
+                    <label>Password:</label><br>
+                    <input type="password" name="password" placeholder="Enter password" style="width: 380px">
+                    <br><br>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                            style="position: absolute; left: 46px;">Close
+                    </button>
+                    <button class="btn btn-success" type="submit" style="position: absolute; left: 320px">Submit
+                    </button>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<%--  End Model login  --%>
 
 <div class="container-fluid" style="margin-top: 2%">
     <div style="text-align: center">
