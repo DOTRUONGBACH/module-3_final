@@ -25,6 +25,7 @@ public class ProductServlet extends HttpServlet {
 //        session.getAttribute("fullName");
         req.setAttribute("hatTypes", hatTypes);
         req.setAttribute("products", Products);
+        req.setAttribute("fullName", null);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/home.jsp");
         dispatcher.forward(req,resp);
     }

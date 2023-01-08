@@ -42,7 +42,7 @@
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Nam</a>
                     <ul class="dropdown-menu">
                         <c:forEach var="h" items="${hatTypes}">
-                        <li><a class="dropdown-item" href="/filterProduct?idHatType=${h.idHattype}&idCate=1&fullName=${fullName}">${h.typeName}</a></li>
+                        <li><a class="dropdown-item" href="/filterProduct?idHatType=${h.idHattype}&idCate=1&fullName${fullName}">${h.typeName}</a></li>
                         </c:forEach>
                     </ul>
                 </li>
