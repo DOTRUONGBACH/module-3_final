@@ -40,18 +40,17 @@ public class CartItem {
         this.quantity = quantity;
     }
 
-    public double getTotalCost() {
-        return totalCost;
-    }
-
     public void setTotalCost(double totalCost) {
         this.totalCost = totalCost;
     }
-    public void calculateSellprice(){
-        setSellPrice(product.getSellPrice()-(product.getSellPrice()* product.getSellPrice()/100));
+
+    public double getTotalCost() {
+        calculateTotalcost();
+        return totalCost;
     }
+
     public void calculateTotalcost(){
-        calculateSellprice();
         setTotalCost(quantity*sellPrice);
     }
+
 }

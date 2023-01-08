@@ -66,16 +66,6 @@
                 </div>
 
                 <%-- Mục Tài khoản --%>
-                <div style="position: absolute; left: 80%">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Đăng ký /</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Đăng nhập /</a>
-                        </li>
-                    </ul>
-                </div>
 
                 <%-- Login success --%>
                 <div style="position: absolute; left: 80%">
@@ -84,7 +74,7 @@
                             <a class="nav-link" href="#">Name /</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Giỏ hàng /</a>
+                            <a class="nav-link" href="item">Giỏ hàng /</a>
                         </li>
                     </ul>
                 </div>

@@ -2,8 +2,6 @@ package com.example.casem3.controller;
 
 import com.example.casem3.model.Cart;
 import com.example.casem3.model.CartItem;
-import com.example.casem3.model.Product;
-import com.example.casem3.service.ProductService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,11 +13,27 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/item")
-public class CartItemseverlet extends HttpServlet {
+@WebServlet(urlPatterns = "/deleteitem")
+public class DeleteItem extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/cart.jsp");
-        dispatcher.forward(req,resp);
+        HttpSession session = req.getSession();
+
+        Cart cart = (Cart) session.getAttribute("cart");
+        String name = req.getParameter("name");
+
+        for (int i = 0; i < cart.getItems().size(); i++) {
+            if (name.equals(cart.getItems().get(i).getHat().getHatName())) {
+                cart.getItems().remove(i);
+                break;
+            }
+        }
+        session.setAttribute("cart", cart);
+        resp.sendRedirect("/item");
+
+
     }
+
 }
+
+

@@ -36,6 +36,11 @@ public class AddtoCartSevrlet extends HttpServlet {
                     cartItemList.add(cartItem);
                     cart.setItems(cartItemList);
                     session.setAttribute("cart", cart);
+                    double total = 0;
+                    for (int i = 0; i < cart.getItems().size(); i++) {
+                        total += cart.getItems().get(i).getTotalCost();
+                    }
+                    session.setAttribute("total",total);
                 } else {
                     Cart cart = (Cart) session.getAttribute("cart");
                     List<CartItem> cartItemList = cart.getItems();
@@ -56,6 +61,11 @@ public class AddtoCartSevrlet extends HttpServlet {
                         cartItemList.add(item);
                     }
                     session.setAttribute("cart", cart);
+                    double total = 0;
+                    for (int i = 0; i < cart.getItems().size(); i++) {
+                        total += cart.getItems().get(i).getTotalCost();
+                    }
+                    session.setAttribute("total",total);
                 }
             }
             resp.sendRedirect("/item");

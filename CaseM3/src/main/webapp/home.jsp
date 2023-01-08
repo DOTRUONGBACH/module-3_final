@@ -88,7 +88,7 @@
                             <a class="nav-link" href="#">Hello ${fullName} /</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Giỏ hàng /</a>
+                            <a class="nav-link" href="/item">Giỏ hàng /</a>
                         </li>
                     </ul>
                 </div>

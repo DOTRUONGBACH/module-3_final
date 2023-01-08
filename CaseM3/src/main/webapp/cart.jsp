@@ -12,15 +12,22 @@
     <title>Title</title>
 </head>
 <body>
+<form action="/product/infoProduct.jsp" method="get">
+<button type="submit" class="btn btn-success" >BACK</button>
+</form>
 <form>
     <c:forEach items="${cart.items}" var="c">
 <tr>
-    <td>${c.getHat().getHatName()}</td>
-    <td>${c.quantity * c.sellPrice}</td>
-    <td>${c.quantity}</td>
-    <a type="button" class="btn btn-danger" href="/item" >Delete</a>
+        <td>${c.getHat().getHatName()}</td>
+        <td>${c.getTotalCost()}</td>
+        <td>${c.quantity}</td>
+        <a type="button" class="btn btn-danger" href="/deleteitem?name=${c.getHat().getHatName()}" >Delete</a>
+
 </tr>
     </c:forEach>
+<p>ToTal:${sessionScope.get("total")}
+</p>
+
 
 </form>
 </body>
