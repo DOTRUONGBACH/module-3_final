@@ -88,7 +88,7 @@
                             <a class="nav-link" href="#">Hello ${fullName} /</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Giỏ hàng /</a>
+                            <a class="nav-link" href="/item">Giỏ hàng /</a>
                         </li>
                     </ul>
                 </div>
@@ -256,7 +256,12 @@
                     <div class="hover-overlay"></div>
                     <div class="hover-5-content">
                         <h6 class="hover-5-title text-uppercase font-weight-light mb-0">
+                            <c:if test="${sessionScope.get('fullName') != null}">
                             <span><a class="btn btn-danger" href="/infoProduct?hatId=${p.hatId}">Mua hàng</a></span>
+                            </c:if>
+                            <c:if test="${sessionScope.get('fullName') == null}">
+                            <span><a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal-2"  >Mua hàng</a></span>
+                            </c:if>
                             <br><br>
                             <strong class="font-weight-bold text-white">${p.hatName} </strong>
                             <span>${p.sellPrice}</span>

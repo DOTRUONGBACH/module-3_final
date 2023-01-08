@@ -66,16 +66,6 @@
                 </div>
 
                 <%-- Mục Tài khoản --%>
-                <div style="position: absolute; left: 80%">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Đăng ký /</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Đăng nhập /</a>
-                        </li>
-                    </ul>
-                </div>
 
                 <%-- Login success --%>
                 <div style="position: absolute; left: 80%">
@@ -84,7 +74,7 @@
                             <a class="nav-link" href="#">Name /</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Giỏ hàng /</a>
+                            <a class="nav-link" href="item">Giỏ hàng /</a>
                         </li>
                     </ul>
                 </div>
@@ -120,7 +110,7 @@
                                 </div>
                                 <p class="about">${products.detail}.</p>
                                 <div class="cart mt-8 align-items-center">
-                                    <button class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button>
+                                    <a type="button" class="btn btn-danger text-uppercase mr-2 px-4" href="/addtocart?hatid=${products.hatId}">Add to cart</a>
                                     <button class="btn btn-danger text-uppercase mr-2 px-4">Buy now</button>
                                 </div>
                             </div>

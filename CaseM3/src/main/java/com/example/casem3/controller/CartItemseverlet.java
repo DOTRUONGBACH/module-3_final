@@ -1,5 +1,7 @@
 package com.example.casem3.controller;
 
+import com.example.casem3.model.Cart;
+import com.example.casem3.model.CartItem;
 import com.example.casem3.model.Product;
 import com.example.casem3.service.ProductService;
 
@@ -13,15 +15,11 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/infoProduct")
-
-public class InfoProductServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/item")
+public class CartItemseverlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("hatId"));
-        Product products = ProductService.findByHatId(id);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/product/infoProduct.jsp");
-        req.setAttribute("products", products);
-        dispatcher.forward(req, resp);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/cart.jsp");
+        dispatcher.forward(req,resp);
     }
 }
