@@ -1,6 +1,7 @@
 package com.example.casem3.dao;
 
 import com.example.casem3.model.HatType;
+import com.example.casem3.model.Product;
 
 
 import java.sql.Connection;
@@ -27,5 +28,22 @@ public class HatTypeDao {
             e.printStackTrace();
         }
         return hattypes;
+    }
+
+    public static HatType selectByIdHatType(int id) {
+        String sql = "Select * from hattype where idHattype = " + id;
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            resultSet.next();
+
+            int idHattype = resultSet.getInt("idHattype");
+            String typeName = resultSet.getString("typeName");
+
+            return new HatType(idHattype, typeName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

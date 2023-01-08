@@ -23,7 +23,7 @@ public class ProductServlet extends HttpServlet {
         List<HatType> hatTypes = HatTypeService.hatTypes;
 //        HttpSession session = req.getSession();
 //        session.getAttribute("fullName");
-        req.setAttribute("hattypes", hatTypes);
+        req.setAttribute("hatTypes", hatTypes);
         req.setAttribute("products", Products);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/home.jsp");
         dispatcher.forward(req,resp);

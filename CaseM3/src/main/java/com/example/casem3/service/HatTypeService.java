@@ -8,4 +8,8 @@ import java.util.List;
 public class HatTypeService {
 
     public static List<HatType> hatTypes = HatTypeDao.selectAll();
+
+    public static HatType findByIdHatType(int id) {
+        return HatTypeDao.selectByIdHatType(id);
+    }
 }

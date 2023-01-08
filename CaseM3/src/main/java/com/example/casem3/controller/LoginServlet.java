@@ -36,6 +36,10 @@ public class LoginServlet extends HttpServlet {
         } else {
             if (account.getRole() == 1) {
                 // admin
+                List<Product> Products = ProductService.Products;
+                List<HatType> hatTypes = HatTypeService.hatTypes;
+                req.setAttribute("hatTypes", hatTypes);
+                req.setAttribute("products", Products);
                 RequestDispatcher dispatcher = req.getRequestDispatcher("/admin.jsp");
                 HttpSession session = req.getSession();
                 String fullName = account.getFullName();
@@ -45,7 +49,7 @@ public class LoginServlet extends HttpServlet {
                 // user
                 List<Product> Products = ProductService.Products;
                 List<HatType> hatTypes = HatTypeService.hatTypes;
-                req.setAttribute("hattypes", hatTypes);
+                req.setAttribute("hatTypes", hatTypes);
                 req.setAttribute("products", Products);
                 RequestDispatcher dispatcher = req.getRequestDispatcher("/home.jsp");
                 HttpSession session = req.getSession();
