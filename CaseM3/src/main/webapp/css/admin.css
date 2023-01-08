@@ -6,10 +6,27 @@
 }
 
 #displayAccount {
+    overflow:auto;
     border-color: #dc3545;
     border-style: double;
     width: 900px;
     position: absolute;
     left: 380px;
     top: 190px;
+}
+table, th, td{
+    border:1px solid #ccc;
+}
+table{
+    border-collapse:collapse;
+    width:600px;
+}
+th, td{
+    text-align:left;
+    padding:10px;
+}
+
+tr:hover{
+    background-color:#ddd;
+    cursor:pointer;
 }

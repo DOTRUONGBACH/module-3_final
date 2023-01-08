@@ -28,6 +28,11 @@ public class DeleteItem extends HttpServlet {
                 break;
             }
         }
+        double total = 0;
+        for (int i = 0; i < cart.getItems().size(); i++) {
+            total += cart.getItems().get(i).getTotalCost();
+        }
+        session.setAttribute("total",total);
         session.setAttribute("cart", cart);
         resp.sendRedirect("/item");
 

@@ -41,6 +41,8 @@ public class ProductServlet extends HttpServlet {
         String detail = req.getParameter("detail");
         Product product = new Product(hatName, imgMain, imgSub1, imgSub2, sellPrice, quantity,detail);
         ProductService.insert(product);
-        resp.sendRedirect("/home");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/showadmin");
+        dispatcher.forward(req,resp);
+
     }
 }

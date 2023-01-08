@@ -38,6 +38,17 @@ public class Product {
         this.detail = detail;
     }
 
+    public Product(int hatid, String hatName, String imgMain, String imgSub1, String imgSub2, double sellPrice, int quantity, String detail) {
+        this.hatId = hatid;
+        this.hatName = hatName;
+        this.imgMain = imgMain;
+        this.imgSub1 = imgSub1;
+        this.imgSub2 = imgSub2;
+        this.sellPrice = sellPrice;
+        this.quantity = quantity;
+        this.detail = detail;
+    }
+
     public int getHatId() {
         return hatId;
     }

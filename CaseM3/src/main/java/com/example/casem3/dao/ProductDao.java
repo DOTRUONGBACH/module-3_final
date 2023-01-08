@@ -63,8 +63,8 @@ public class ProductDao {
     }
 
     public static boolean insert(Product product) {
-        String sql = "INSERT INTO `#`.`#` (`hatName`, `imgMain`, `imgSub1`, `imgSub2`, \n" +
-                "                        `sellPrice`, `quantity`,`detail`,`idHattype`,`idCatagory`) VALUES (?,?,?,?,?,?,?,?,?);";
+        String sql = "INSERT INTO `casemd3`.`product` (`hatName`, `imgMain`, `imgSub1`, `imgSub2`," +
+                "`sellPrice`, `quantity`,`detail`) VALUES (?,?,?,?,?,?,?);";
         try {
             PreparedStatement prepareStatement = connection.prepareStatement(sql);
             prepareStatement.setString(1,product.getHatName());
@@ -74,8 +74,7 @@ public class ProductDao {
             prepareStatement.setDouble(5, product.getSellPrice());
             prepareStatement.setInt(6, product.getQuantity());
             prepareStatement.setString(7, product.getDetail());
-            prepareStatement.setInt(8, product.getIdHattype());
-            prepareStatement.setInt(9, product.getIdCatagory());
+
             return prepareStatement.execute();
 
         } catch (Exception e) {
@@ -85,8 +84,8 @@ public class ProductDao {
     }
 
     public static boolean update(Product product) {
-        String sql = "UPDATE `#`.`#` SET `hatname` = ?, `imgmain` = ?, `imgsub1` = ?, `imgsub2` = ?, `sellprice` = ?, `quantity` = ?,`detail`=? " +
-                "WHERE (`id` = ?);";
+        String sql = "UPDATE `casemd3`.`product` SET `hatname` = ?, `imgmain` = ?, `imgsub1` = ?, `imgsub2` = ?, `sellprice` = ?, `quantity` = ?,`detail`=? " +
+                "WHERE (`hatid` = ?);";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,product.getHatName());
@@ -96,6 +95,7 @@ public class ProductDao {
             preparedStatement.setDouble(5, product.getSellPrice());
             preparedStatement.setInt(6, product.getQuantity());
             preparedStatement.setString(7, product.getDetail());
+            preparedStatement.setInt(8, product.getHatId());
             return preparedStatement.execute();
         } catch (Exception e) {
             e.printStackTrace();
@@ -104,7 +104,7 @@ public class ProductDao {
     }
 
     public static void delete(int id) {
-        String delete = "Delete from # where id = ? ";
+        String delete = "Delete from product where hatid = ? ;";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(delete);
             preparedStatement.setInt(1, id);
@@ -115,7 +115,9 @@ public class ProductDao {
     }
 
     public static List<Product> search(String searchname) {
+
         String search = "select * from product where hatName like '%"+searchname+"%';";
+
         List<Product> Products = new ArrayList<>();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(search);
