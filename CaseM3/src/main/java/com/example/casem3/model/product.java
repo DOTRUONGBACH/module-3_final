@@ -1,7 +1,5 @@
 package com.example.casem3.model;
 
-
-
     public class Product {
         private int hatId;
         private String hatName;
@@ -120,6 +118,8 @@ package com.example.casem3.model;
             this.idCatagory = idCatagory;
         }
     }
+
+
 
 
 

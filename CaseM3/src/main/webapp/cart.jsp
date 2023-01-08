@@ -18,6 +18,7 @@
     <td>${c.getHat().getHatName()}</td>
     <td>${c.quantity * c.sellPrice}</td>
     <td>${c.quantity}</td>
+    <a type="button" class="btn btn-danger" href="/item" >Delete</a>
 </tr>
     </c:forEach>
 
