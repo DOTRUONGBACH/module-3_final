@@ -13,12 +13,3 @@
     left: 380px;
     top: 190px;
 }
-
-#displayProduct {
-    border-color: #dc3545;
-    border-style: double;
-    width: 900px;
-    position: absolute;
-    left: 380px;
-    float: top;
-}

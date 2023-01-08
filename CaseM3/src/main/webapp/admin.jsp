@@ -89,69 +89,76 @@
         <h5>Manage Product</h5>
         <a style="width: 250px" class="btn btn-primary"> Search Product</a><br><br>
         <a style="width: 250px" class="btn btn-success">Add Product</a><br><br>
-        <a style="width: 250px" class="btn btn-warning">Edit Product</a><br><br>
-        <a style="width: 250px" class="btn btn-danger">Delete Product</a><br>
         <hr>
     </div>
 </div>
 <%--  End menu control  --%>
 
-<%--  Display Account  --%>
-<div id="displayAccount">
-    <div style="text-align: center"><h3>Account</h3><br></div>
-    <hr>
-    <table class="table table-striped">
-        <tr>
-            <th>Account ID</th>
-            <th>Username</th>
-            <th>Full Name</th>
-            <th>Age</th>
-            <th>Phone Number</th>
-        </tr>
-        <tr>
-            <td>23</td>
-            <td>hunganh2002</td>
-            <td>Hùng Anh</td>
-            <td>20</td>
-            <td>0837112007</td>
-        </tr>
-        <tr>
-            <td colspan="5" style="text-align: center">
-                <a style="width: 200px; margin-left: 50px" class="btn btn-warning">Edit Account</a>
-                <a style="width: 200px; margin-left: 50px" class="btn btn-danger">Delete Account</a><br>
-            </td>
-        </tr>
-    </table>
-</div>
-<%--  End Display Account  --%>
+<%--  Display  --%>
+<div>
+    <%--  Display Account  --%>
+    <div id="displayAccount">
+        <div style="text-align: center"><h3>Account</h3><br></div>
+        <hr>
+        <table class="table table-striped">
+            <tr>
+                <th>Account ID</th>
+                <th colspan="2">Username</th>
+                <th colspan="2">Full Name</th>
+                <th>Age</th>
+                <th colspan="2">Phone Number</th>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td colspan="2">hunganh2002</td>
+                <td colspan="2">Hùng Anh</td>
+                <td>20</td>
+                <td colspan="2">0837112007</td>
+            </tr>
+            <tr>
+                <td colspan="8" style="text-align: center">
+                    <a style="width: 200px; margin-left: 50px" class="btn btn-warning">Edit Account</a>
+                    <a style="width: 200px; margin-left: 50px" class="btn btn-danger">Delete Account</a><br>
+                </td>
+            </tr>
+            <%--  End Display Account  --%>
+            <tr><td colspan="5"></td></tr>
 
-<%--  Display Product  --%>
-<div id="displayProduct">
-    <div style="text-align: center"><h3>Product</h3><br></div>
-    <hr>
-    <table class="table table-striped">
-        <tr>
-            <th>Account ID</th>
-            <th>Username</th>
-            <th>Full Name</th>
-            <th>Age</th>
-            <th>Phone Number</th>
-        </tr>
-        <tr>
-            <td>23</td>
-            <td>hunganh2002</td>
-            <td>Hùng Anh</td>
-            <td>20</td>
-            <td>0837112007</td>
-        </tr>
-        <tr>
-            <td colspan="5" style="text-align: center">
-                <a style="width: 200px; margin-left: 50px" class="btn btn-warning">Edit Account</a>
-                <a style="width: 200px; margin-left: 50px" class="btn btn-danger">Delete Account</a><br>
-            </td>
-        </tr>
-    </table>
+            <%--  Display Product  --%>
+            <tr>
+                <td colspan="8"><div style="text-align: center"><h3>Product</h3><br></div></td>
+            </tr>
+
+            <tr>
+                <th>Product ID</th>
+                <th>Name product</th>
+                <th>Img Main</th>
+                <th>Img Sub1</th>
+                <th>Img Sub2</th>
+                <th>Sell Price</th>
+                <th>Quantity</th>
+                <th>Detail</th>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>hunganh2002</td>
+                <td>Hùng Anh</td>
+                <td>20</td>
+                <td>0837112007</td>
+                <td>0837112007</td>
+                <td>0837112007</td>
+                <td>0837112007</td>
+            </tr>
+            <tr>
+                <td colspan="8" style="text-align: center">
+                    <a style="width: 200px; margin-left: 50px" class="btn btn-warning">Edit Product</a>
+                    <a style="width: 200px; margin-left: 50px" class="btn btn-danger">Delete Product</a><br>
+                </td>
+            </tr>
+            <%--  End Display Product  --%>
+        </table>
+    </div>
 </div>
-<%--  End Display Account  --%>
+<%--  End Display  --%>
 </body>
 </html>
