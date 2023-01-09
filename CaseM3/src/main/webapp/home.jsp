@@ -230,27 +230,27 @@
     </div>
     <div class="container-fluid center-parent center-me"
          style="margin-top: 2%; margin-left: 2%; text-align: center; display: inline-flex">
-        <figure class="snip1104 blue col-md-4">
+        <figure class="snip1104 blue col-md-4" style="height: 300px;">
             <img src="https://munonsaigon.com/wp-content/uploads/2016/03/BANNER-MAY-NON-9.jpg" alt="sample35"
-                 style="width: 400px; margin-top: 2%"/>
+                 style="width:400px;height: 300px; margin-top: 2%"/>
             <figcaption>
-                <h2>Sale <span> %</span></h2>
+                <h2>Sale <span> 50%</span></h2>
             </figcaption>
             <a href="#"></a>
         </figure>
-        <figure class="snip1104 blue col-md-4">
-            <img src="https://munonsaigon.com/wp-content/uploads/2016/03/BANNER-MAY-NON-9.jpg" alt="sample35"
+        <figure class="snip1104 blue col-md-4" style="height: 300px;">
+            <img src="https://file.chodocu.com//2018/07/17/d2ab565e--dae1.jpg" alt="sample35"
                  style="width: 400px; margin-top: 2%"/>
             <figcaption>
-                <h2>Sale <span> %</span></h2>
+                <h2>Sale <span> 99%</span></h2>
             </figcaption>
             <a href="#"></a>
         </figure>
-        <figure class="snip1104 blue col-md-4">
-            <img src="https://munonsaigon.com/wp-content/uploads/2016/03/BANNER-MAY-NON-9.jpg" alt="sample35"
+        <figure class="snip1104 blue col-md-4" style="height: 300px;">
+            <img src="https://filesdata.cadn.com.vn/filedatacadn/media//data_news/Image/2014/th3/ng7/h12e.jpg" alt="sample35"
                  style="width: 400px; margin-top: 2%"/>
             <figcaption>
-                <h2>Sale <span> %</span></h2>
+                <h2>Sale <span> 100%</span></h2>
             </figcaption>
             <a href="#"></a>
         </figure>
@@ -299,17 +299,82 @@
 <%--  End List sản phẩm  --%>
 
 
-<div>a</div>
-<div>a</div>
-<div>a</div>
-<div>a</div>
-<div>a</div>
+<%--<div>a</div>--%>
+<%--<div>a</div>--%>
+<%--<div>a</div>--%>
+<%--<div>a</div>--%>
+<%--<div>a</div>--%>
 
 <%-- Thanh Footer --%>
-<footer>
-    <div style="text-align: center">
-        <h3>Footer</h3>
+<!-- Footer -->
+<footer class="text-center text-white" style="background-color: #f1f1f1;">
+    <!-- Grid container -->
+    <div class="container pt-4">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+            <!-- Facebook -->
+            <a
+                    class="btn btn-link btn-floating btn-lg text-dark m-1"
+                    href="#!"
+                    role="button"
+                    data-mdb-ripple-color="dark"
+            ><i class="fab fa-facebook-f"></i
+            ></a>
+
+            <!-- Twitter -->
+            <a
+                    class="btn btn-link btn-floating btn-lg text-dark m-1"
+                    href="#!"
+                    role="button"
+                    data-mdb-ripple-color="dark"
+            ><i class="fab fa-twitter"></i
+            ></a>
+
+            <!-- Google -->
+            <a
+                    class="btn btn-link btn-floating btn-lg text-dark m-1"
+                    href="#!"
+                    role="button"
+                    data-mdb-ripple-color="dark"
+            ><i class="fab fa-google"></i
+            ></a>
+
+            <!-- Instagram -->
+            <a
+                    class="btn btn-link btn-floating btn-lg text-dark m-1"
+                    href="#!"
+                    role="button"
+                    data-mdb-ripple-color="dark"
+            ><i class="fab fa-instagram"></i
+            ></a>
+
+            <!-- Linkedin -->
+            <a
+                    class="btn btn-link btn-floating btn-lg text-dark m-1"
+                    href="#!"
+                    role="button"
+                    data-mdb-ripple-color="dark"
+            ><i class="fab fa-linkedin"></i
+            ></a>
+            <!-- Github -->
+            <a
+                    class="btn btn-link btn-floating btn-lg text-dark m-1"
+                    href="#!"
+                    role="button"
+                    data-mdb-ripple-color="dark"
+            ><i class="fab fa-github"></i
+            ></a>
+        </section>
+        <!-- Section: Social media -->
     </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2020 Copyright:
+        <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
 </footer>
 </body>
 </html>
